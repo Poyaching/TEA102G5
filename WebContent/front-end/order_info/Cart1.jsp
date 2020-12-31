@@ -8,7 +8,7 @@
 <%@page import="com.class_info.model.*" %>
 
 <% 
-String amount=(String)request.getAttribute("amount");
+String amount=(String)session.getAttribute("amount");
 %>
 
 <head>
@@ -43,6 +43,7 @@ ul.car {
 	background-color: white;
 	width: 200px;
 	height: 200px;
+	border-radius:10px;
 }
 
 ul.car li.item_detail {
@@ -129,6 +130,10 @@ li.price1, li.count1, li.amount1, li.amount2, li.pic-class {
 	text-align: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
+	background-color: rgba(241, 173, 94, 0.897);
+	width: 100px;
+	margin-left: 50px;
+	border-radius: 3px;
 }
 
 .b {
@@ -155,6 +160,8 @@ div.frame {
 width:120px;
 height:80px;
 }
+
+
 
 
 
@@ -185,7 +192,7 @@ height:80px;
 		<!-- 內容 -->
 		<div id="content">
 			<div class="row">
-				<div class="col-11">
+				<div class="col-10">
 					<table style="text-align: center">
 						<div class="frame">
 							<thead style="height: 50" class="table">
@@ -203,7 +210,7 @@ height:80px;
 								<c:forEach var="class_infoVO" items="${shoppingcart}" varStatus="loop">
 									<tr>
 										<td class="image"><img style="width:200px"src="<%=request.getContextPath()%>/Class_info/Class_Introduction?action=class_pic_sm&class_id=${class_infoVO.class_id}"></td>
-										<td class="title"><b>${class_infoVO.class_name}</b></td>
+										<td class="title" style="width:390px"><b>${class_infoVO.class_name}</b></td>
 										<td class="price1"><span id="status${loop.index}">${class_infoVO.class_status}</span></td>
 										<td class="price2"><b>${class_infoVO.startfund_price}</b></td>
 										<td class="price2"><b>${class_infoVO.original_price}</b></td>
@@ -233,7 +240,8 @@ height:80px;
 						<div class="a">訂單明細</div>
 						<div class="b"><b>小計$:<%=amount%></b></div>
 						<br>
-						<button class="c  btn btn-danger">來去結帳</button>
+						<a href="<%=request.getContextPath()%>/front-end/order_info/Checkout.jsp" class="c  btn btn-danger">來去結帳</a>
+<!-- 						<input type="submit" class="c  btn btn-danger" value="來去結帳"> -->
 					</div>
 				</div>
 
@@ -321,6 +329,8 @@ height:80px;
     if(status2==6){
       document.getElementById("status1").textContent="退件"
     }
+    
+
 	</script>
     
 </body>
