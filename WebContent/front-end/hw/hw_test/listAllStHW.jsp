@@ -2,17 +2,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.*"%>
-<%@ page import="com.teacher_homework.model.*"%>
+<%@ page import="com.student_homework.model.*"%>
+
 
 <%
-	Teacher_homeworkService trhwService = new Teacher_homeworkService();
-	List<Teacher_homeworkVO> list = trhwService.getAll();
+	Student_homeworkService sthwService = new Student_homeworkService();
+	List<Student_homeworkVO> list = sthwService.getAll();
 	pageContext.setAttribute("list", list);
 %>
 
+
 <html>
 <head>
-<title>所有作業題目資料 - listAllTrHW.jsp</title>
+<title>所有學生作業資料 - listAllStHW.jsp</title>
 <style>
 table#table-1 {
 	width: 800px;
@@ -58,9 +60,9 @@ img{
 	<table id="table-1">
 		<tr>
 			<td>
-				<h3>所有作業題目資料 - listAllTrHW.jsp</h3>
+				<h3>所有學生作業資料 - listAllStHW.jsp</h3>
 				<h4>
-					<a href="<%=request.getContextPath()%>/front-end/teacherHw/hwQuestion.jsp">回首頁</a>
+					<a href="<%=request.getContextPath()%>/front-end/hw_test/studenthw.jsp">回首頁	</a>
 				</h4>
 			</td>
 		</tr>
@@ -78,10 +80,9 @@ img{
 
 	<table>
 		<tr>
+			<th>作品編號</th>
 			<th>作業編號</th>
-			<th>單元編號</th>
-			<th>作業標題</th>
-			<th>內容</th>
+			<th>學生編號</th>
 			<th>檔案</th>
 			<th>上傳時間</th>
 			<th>更新時間</th>
@@ -89,27 +90,26 @@ img{
 			<th>刪除</th>
 		</tr>
 		<%@ include file="page1.file"%>
-		<c:forEach var="trhwVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
+		<c:forEach var="sthwVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
 
 			<tr>
-				<td>${trhwVO.teacherhw_id}</td>
-				<td>${trhwVO.unit_id}</td>
-				<td>${trhwVO.hw_name}</td>
-				<td>${trhwVO.hw_content}</td>
-				<td><img alt="圖片" src="<%= request.getContextPath()%>/TeacherhwServlet?action=display_pic&teacherhw_id=${trhwVO.teacherhw_id}"></td>
-				<td><fmt:formatDate value="${trhwVO.hw_uploadtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				<td><fmt:formatDate value="${trhwVO.hw_updatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+				<td>${sthwVO.studenthw_id}</td>
+				<td>${sthwVO.teacherhw_id}</td>
+				<td>${sthwVO.member_id}</td>
+				<td><img alt="圖片" src="<%= request.getContextPath()%>/studenthwServlet?action=display_pic&studenthw_id=${sthwVO.studenthw_id}"></td>
+				<td><fmt:formatDate value="${sthwVO.hw_uploadtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+				<td><fmt:formatDate value="${sthwVO.hw_updatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				<td>
-					<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/teacherHw/teacherhw.do" style="margin-bottom: 0px;">
+					<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/studenthwServlet" style="margin-bottom: 0px;">
 						<input type="submit" value="修改">
-						<input type="hidden" name="teacherhw_id"  value="${trhwVO.teacherhw_id}">
+						<input type="hidden" name="studenthw_id"  value="${sthwVO.studenthw_id}">
 						<input type="hidden" name="action" value="getOne_For_Update">
 					</FORM>
 				</td>
 				<td>
-					<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/teacherHw/teacherhw.do" style="margin-bottom: 0px;">
+					<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/studenthwServlet" style="margin-bottom: 0px;">
 						<input type="submit" value="刪除">
-						<input type="hidden" name="teacherhw_id" value="${trhwVO.teacherhw_id}">
+						<input type="hidden" name="studenthw_id" value="${sthwVO.studenthw_id}">
 						<input type="hidden" name="action" value="delete">
 					</FORM>
 				</td>

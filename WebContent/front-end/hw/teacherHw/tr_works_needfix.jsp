@@ -16,7 +16,6 @@
         * {
             box-sizing: border-box;
         }
-
         /* header  */
         header {
             width: 100%;
@@ -25,7 +24,6 @@
             position: sticky;
             top: 0;
         }
-
         /* 影片底圖 */
         .sidebar {
             background: linear-gradient(rgba(255, 255, 255, 0.466), rgba(255, 255, 255, 0.5)), url(https://www.twcode01.com/images/demo/demo2.jpg);
@@ -34,33 +32,28 @@
             /*去掉固定高度，以內容撐高度*/
             /* font-size: 0; */
         }
-
         #talk {
             position: fixed;
             right: 20px;
             bottom: 30px;
             height: 60px;
         }
-
         /* 內部框 */
         #content {
             margin-top: 10px;
             margin-bottom: 50px;
             border: 1px rgb(204, 204, 204) solid;
         }
-
         #content-class {
             margin-top: 10px;
             margin-bottom: 20px;
             /* border: 1px rgb(204, 204, 204) solid; */
         }
-
         .video-js {
             position: relative;
             width: 100%;
             top: 1%;
         }
-
         /* 自訂按鈕- */
         .class-btn {
             background-color: rgba(255, 255, 255);
@@ -70,7 +63,6 @@
             border-radius: .25rem;
             /*增加了圓框*/
         }
-
     </style>
     <title>TOMATO - 讓你分分鐘鐘都在學習的平台</title>
 </head>

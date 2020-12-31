@@ -68,7 +68,7 @@
 	<div style="border:1px solid black; padding: 2rem;">
 		<%@ include file="page1.file"%>
 		<c:forEach var="sthwVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
-			<jsp:include page="/front-end/teacherHw/work_card.jsp" flush="true">
+			<jsp:include page="/front-end/hw/testing_folder/workTest.jsp" flush="true">
 				<jsp:param name="studenthw_id" value="${sthwVO.studenthw_id}"/>
 			</jsp:include>
 		</c:forEach>

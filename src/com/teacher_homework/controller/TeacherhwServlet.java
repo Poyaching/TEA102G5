@@ -66,7 +66,7 @@ public class TeacherhwServlet extends HttpServlet {
 			}
 
 			if (!errorMsgs.isEmpty()) {
-				RequestDispatcher failureView = req.getRequestDispatcher("/front-end/teacherHw/hwQuestion.jsp");
+				RequestDispatcher failureView = req.getRequestDispatcher("/front-end/hw/teacherHw/hwQuestion.jsp");
 				failureView.forward(req, res);
 				return;
 			}
@@ -78,13 +78,13 @@ public class TeacherhwServlet extends HttpServlet {
 			}
 //			Send the use back to the form, if there were errors
 			if (!errorMsgs.isEmpty()) {
-				RequestDispatcher failureView = req.getRequestDispatcher("/front-end/teacherHw/hwQuestion.jsp");
+				RequestDispatcher failureView = req.getRequestDispatcher("/front-end/hw/teacherHw/hwQuestion.jsp");
 				failureView.forward(req, res);
 				return;//process interrupt
 			}
 //			forword to url
 			req.setAttribute("teacher_homeworkVO", vo);
-			String url = "/front-end/teacherHw/listOneTrHW.jsp";
+			String url = "/front-end/hw/teacherHw/listOneTrHW.jsp";
 			RequestDispatcher successView = req.getRequestDispatcher(url);
 			successView.forward(req, res);
 
@@ -92,7 +92,7 @@ public class TeacherhwServlet extends HttpServlet {
 		} catch (Exception e) {
 //			show error at current page
 			errorMsgs.add("that is something go wrong:" + e.getMessage());
-			RequestDispatcher failureView = req.getRequestDispatcher("/front-end/teacherHw/hwQuestion.jsp");
+			RequestDispatcher failureView = req.getRequestDispatcher("/front-end/hw/teacherHw/hwQuestion.jsp");
 			failureView.forward(req, res);
 		}
 	}
@@ -108,13 +108,13 @@ public class TeacherhwServlet extends HttpServlet {
 			Teacher_homeworkVO vo = service.select(teacherhw_id);
 
 			req.setAttribute("teacher_homeworkVO", vo);
-			String url = "/front-end/teacherHw/updateTrHW.jsp";
+			String url = "/front-end/hw/teacherHw/updateTrHW.jsp";
 			RequestDispatcher successView = req.getRequestDispatcher(url);
 			successView.forward(req, res);
 		} catch (Exception e) {
 //			show error at listAll page
 			errorMsgs.add("that is something go wrong:" + e.getMessage());
-			RequestDispatcher failureView = req.getRequestDispatcher("/front-end/teacherHw/listAllTrHW.jsp");
+			RequestDispatcher failureView = req.getRequestDispatcher("/front-end/hw/teacherHw/listAllTrHW.jsp");
 			failureView.forward(req, res);
 		}
 	}
@@ -186,7 +186,7 @@ public class TeacherhwServlet extends HttpServlet {
 			// Send the use back to the form, if there were errors
 			if (!errorMsgs.isEmpty()) {
 				req.setAttribute("teacher_homeworkVO", teacher_homeworkVO);
-				RequestDispatcher failureView = req.getRequestDispatcher("/front-end/teacherHw/updateTrHW.jsp");
+				RequestDispatcher failureView = req.getRequestDispatcher("/front-end/hw/teacherHw/updateTrHW.jsp");
 				failureView.forward(req, res);
 				return;
 			}	
@@ -194,13 +194,13 @@ public class TeacherhwServlet extends HttpServlet {
 			teacher_homeworkVO = service.update(teacherhw_id,unit_id,hw_name,hw_content,file_data,hw_uploadtime);
 //			show result in listOne page
 			req.setAttribute("teacher_homeworkVO", teacher_homeworkVO);
-			String url = "/front-end/teacherHw/listOneTrHW.jsp";
+			String url = "/front-end/hw/teacherHw/listOneTrHW.jsp";
 			RequestDispatcher successView = req.getRequestDispatcher(url);
 			successView.forward(req, res);
 		} catch (Exception e) {
 //			show error at update page
 			errorMsgs.add("update failed:" + e.getMessage());
-			RequestDispatcher failureView = req.getRequestDispatcher("/front-end/teacherHw/updateTrHW.jsp");
+			RequestDispatcher failureView = req.getRequestDispatcher("/front-end/hw/teacherHw/updateTrHW.jsp");
 			failureView.forward(req, res);
 		}
 	}
@@ -252,21 +252,21 @@ public class TeacherhwServlet extends HttpServlet {
 			// Send the use back to the form, if there were errors
 			if (!errorMsgs.isEmpty()) {
 				req.setAttribute("teacher_homeworkVO", teacher_homeworkVO);
-				RequestDispatcher failureView = req.getRequestDispatcher("/front-end/teacherHw/makeHomework.jsp");
+				RequestDispatcher failureView = req.getRequestDispatcher("/front-end/hw/teacherHw/makeHomework.jsp");
 				failureView.forward(req, res);
 				return;
 			}	
 			Teacher_homeworkService service = new Teacher_homeworkService();
 			teacher_homeworkVO = service.insert(unit_id,hw_name,hw_content,file_data);
 
-			String url = "/front-end/teacherHw/listAllTrHW.jsp";
+			String url = "/front-end/hw/teacherHw/listAllTrHW.jsp";
 			RequestDispatcher successView = req.getRequestDispatcher(url);
 			successView.forward(req, res);				
 //			上述以外的例外
 		} catch (Exception e) {
 			errorMsgs.add(e.getMessage());
 			RequestDispatcher failureView = req
-					.getRequestDispatcher("/front-end/teacherHw/makeHomework.jsp");
+					.getRequestDispatcher("/front-end/hw/teacherHw/makeHomework.jsp");
 			failureView.forward(req, res);
 		}
 	}
@@ -282,14 +282,14 @@ public class TeacherhwServlet extends HttpServlet {
 			Teacher_homeworkService service = new Teacher_homeworkService();
 			service.delete(teacherhw_id);
 									
-			String url = "/front-end/teacherHw/listAllTrHW.jsp";
+			String url = "/front-end/hw/teacherHw/listAllTrHW.jsp";
 			RequestDispatcher successView = req.getRequestDispatcher(url);
 			successView.forward(req, res);
 			
 		} catch (Exception e) {
 			errorMsgs.add("delete failed:"+e.getMessage());
 			RequestDispatcher failureView = req
-					.getRequestDispatcher("/front-end/teacherHw/listAllTrHW.jsp");
+					.getRequestDispatcher("/front-end/hw/teacherHw/listAllTrHW.jsp");
 			failureView.forward(req, res);
 		}
 	}
