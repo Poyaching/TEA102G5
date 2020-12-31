@@ -21,6 +21,7 @@ member_info     //會員資料
 		update_member_info_input.jsp	//帳號更新頁面  
 
 order_info		//購物車結帳相關
+
 		Cart1.jsp				//購物車  
 		CartNoitem.jsp			//購物車無資料  
 		footer.jsp  
@@ -28,6 +29,7 @@ order_info		//購物車結帳相關
 
 
 sign_in		//登入相關
+
 		footer.jsp  
 		header.jsp  
 		forget.jsp				//忘記帳號  
