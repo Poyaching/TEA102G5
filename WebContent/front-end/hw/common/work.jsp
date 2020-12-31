@@ -7,7 +7,7 @@
 <%@ page import="com.student_homework.model.*"%>
 <%@ page import="com.member_info.model.*"%> 
 
-<% String locatoin = (String)session.getAttribute("location"); %>
+<% String locatoin = (String)request.getRequestURI(); %>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@
     <div class="py-3 border-bottom border-muted">
         <h2 class="col col-2 mx-auto my-0 text-center text-muted">
             <a class="text-dark" href="${location}">學生作品</a>
-            
+            <p>${loacation}</p>
         </h2>
     </div>
     <!-- 內容 -->

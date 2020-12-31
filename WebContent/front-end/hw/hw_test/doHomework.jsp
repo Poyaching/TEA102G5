@@ -75,7 +75,7 @@ th, td {
 		</ul>
 	</c:if>
 
-	<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/hw_test/studenthw.do" name="form1" enctype="multipart/form-data">
+	<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/studenthwServlet" name="form1" enctype="multipart/form-data">
 		<table>
 		<jsp:useBean id="teacher_homeworkService" scope="page" class="com.teacher_homework.model.Teacher_homeworkService" />
 			<tr>

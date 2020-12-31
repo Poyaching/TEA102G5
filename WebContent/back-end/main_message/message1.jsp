@@ -1,165 +1,240 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="BIG5" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.main_message.model.*" %>
+
+<% Main_messageVO main_messageVO=(Main_messageVO) request.getAttribute("main_messageVO"); %>
 
 <!DOCTYPE HTML>
-   <html>
-       <head>
-           <meta charset="gb2312">
-           <title>痙ē</title>
-           
-           <style type="text/css">
-           *{margin:0; padding:0;}
-           body,input{font-size:14px; line-height:24px; color:#333; font-family:Microsoft yahei, Song, Arial, Helvetica, Tahoma, Geneva;}
-           h1{margin-bottom:15px; height:100px; line-height:100px; text-align:center; font-size:24px; color:#fff; background:#3EADC5;}
-          #content #post,#comment p{zoom:1;}
-          #content #post:after,#comment p:after{display:block; height:0; clear:both; visibility:hidden; overflow:hidden; content:'.';}
-          .transition{-webkit-transition:all 0.5s linear; -moz-transition:all 0.5s linear; -o-transition:all 0.5s linear; -ms-transition:all 0.5s linear; transition:all 0.5s linear;}
-          #content{margin:0 auto; width:960px; overflow:hidden;}
-          #content #post{margin-bottom:15px; padding-bottom:15px; border-bottom:1px #d4d4d4 dashed;
-                   height: 556px;
-               }
-          #content #post textarea{display:block; margin-bottom:10px; padding:5px; width:948px; height:390px; border:1px #d1d1d1 solid; border-radius:5px; resize:none; outline:none;}
-          #content #post textarea:hover{border:1px #9bdf70 solid; background:#f0fbeb;}
-          #content #post #postBt,#content #post #clearBt{margin-left:5px; padding:3px; float:right;}
-          #comment{overflow:hidden;}
-          #comment p{margin-bottom:10px; padding:10px; border-radius:5px;}
-         #comment p:nth-child(odd){border:1px solid #e3e197; background:#ffd;}
-          #comment p:nth-child(even){border:1px solid #adcd3c; background:#f2fddb;}
-          
-          /*#comment p span{display:inline; float:left;}*/
-          
-          #comment p .right{text-align:right;}
-          #comment p .msg{width:738px;}
-          #comment p .datetime{width:200px; color:#999; text-align:right;}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>痙ē</title>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        input {
+            font-size: 14px;
+            line-height: 24px;
+            color: #333;
+            font-family: Microsoft yahei, Song, Arial, Helvetica, Tahoma, Geneva;
+        }
+
+        h1 {
+            /* 1px 絬龟絬堵︹ */
+            border: 1px solid black;
+            /* ず甧籔絬オ禯瞒常琌 100px */
+            padding: 10px 20px;
+            /* 絬籔オ*/
+            margin: 50px 60px 30px 60px;
+        }
+
+        #content #post,
+        #comment p {
+            zoom: 1;
+        }
+
+        #content #post:after,
+        #comment p:after {
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+            overflow: hidden;
+            content: '.';
+        }
+
+        .transition {
+            -webkit-transition: all 0.5s linear;
+            -moz-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+            -ms-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+        }
+
+        #content {
+            margin: 0 auto;
+            width: 960px;
+            overflow: hidden;
+        }
+
+        #content #post {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px #d4d4d4 dashed;
+            height: 556px;
+        }
+
+        #content #post textarea {
+            display: block;
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 948px;
+            height: 390px;
+            border: 1px #d1d1d1 solid;
+            border-radius: 5px;
+            resize: none;
+            outline: none;
+        }
+
+        #content #post textarea:hover {
+            border: 1px #9bdf70 solid;
+            background: #f0fbeb;
+        }
+
+        #content #post #postBt,
+        #content #post #clearBt {
+            margin-left: 5px;
+            padding: 3px;
+            float: right;
+        }
+
+        #comment {
+            overflow: hidden;
+        }
+
+        #comment p {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #comment p:nth-child(odd) {
+            border: 1px solid #e3e197;
+            background: #ffd;
+        }
+
+        #comment p:nth-child(even) {
+            border: 1px solid #adcd3c;
+            background: #f2fddb;
+        }
+
+        /*#comment p span{display:inline; float:left;}*/
+
+        #comment p .right {
+            text-align: right;
+        }
+
+        #comment p .msg {
+            width: 738px;
+        }
+
+        #comment p .datetime {
+            width: 200px;
+            color: #999;
+            text-align: right;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>揭祘祇拜</h1>
+
+    <div id="content">
+        <div id="comment">
+            <!-- 戈竚 -->
+            
+        </div>
 
 
+        <div id="post">
+            <div style="background:#3EADC5 ;height:30px;">
+               <td><input type="submit" id="shangtian" name="Submit3"
+                    style="border:none; background-color:#3EADC5; color:white;" value="叫块ゅ"
+                    onclick="prom()" /></td>
+                
+            </div>
 
-          </style>
-         <script type="text/javascript">
-             var named;
-             function delete1(id)
-             {
-                 localStorage.removeItem(id);
-                 this.Storage.writeData();
-             }
-             function prom() {
 
-                 var name = prompt("叫块眤", "");//盢块ず甧结倒跑秖 name 
-                 named = name;
-                 //硂ń惠璶猔種琌promptΤㄢ把计玡琌矗ボ杠琌讽癸杠ㄓ癸杠ń纐粄
+            <div>
+                <input type="text" id="test">
+            </div>
+            <input id="postBt" type="button"
+                style="border:none; background-color:#3EADC5; color:white;border-radius:5px; width:80px; height:30px;"
+                value="祇痙ē" />
+            <input id="clearBt" type="button"
+                style="border:none; background-color:#3EADC5; color:white;border-radius:5px; width:80px; height:30px;"
+                value="睲" />
+        </div>
 
-                 if (named)//狦Τず甧
 
-                 {
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        var named;
+       
+        function writeData()//块计沮
+        {
+            
+            dataHtml += "<span style=>" + data[1] + "<span style=\"float:right\">" + data[2] + "</span><p><span class=\"msg\">" + data[0] + "<input style=\"float:right;border:none;border-radius:5px;\" id=\"clearBt\" type=\"button\" ;\" value=\"埃\"/>" + "</span></p>";
+            
+        }
+        
+        //AJAX 穝糤
+        document.getElementById("postBt").addEventListener("click", function () {
+            //块戈
+            var mainmsg_text = document.getElementById("test").value;
 
-                     alert("舧眤" + name)
-                     document.getElementById("shangtian").style.display = "none";
-                     document.getElementById("ritian").value = named;
+            var data = {
+                action: "insert",
+                class_id: "CLA00001",  //${class_info.class_id}
+                member_id: "MEM00001",
+                msg_source: "揭祘",
+                mainmsg_text: mainmsg_text
+            };
 
-                 }
-                 else {
-                     document.getElementById("ritian").value = "拔祇ē";
-                 }
 
-             }
-          var Storage =
-          {
-              saveData:function()//玂计沮
-              {
-    
-                      var data = document.querySelector("#post textarea");
-                  if(data.value != "")
-                  {
-                      var time = new Date().getTime() + Math.random() * 5;//getTime琌Date癸禜いよ猭ノ琌 197001る01らさ睝计
-                      if (named) {
-                          localStorage.setItem(time, data.value + "|" + named + "|" + this.getDateTime());//盢睝计KeyいKey確瞯
-                      }
-                      else
-                      {
-                          localStorage.setItem(time, data.value + "|" + "拔祇ē" + "|" + this.getDateTime());//盢睝计KeyいKey確瞯
-                      }
-
-                      data.value = "";
-                      this.writeData();
-                  }
-                  else
-                  {
-                      alert("叫恶糶眤痙ē");
-                 }
-              },
-              writeData:function()//块计沮
-              {
-                 var dataHtml = "", data = "";
-                  for(var i = localStorage.length-1; i >= 0; i--)//瞯蔼碻吏よ猭
-                  {
-                      data = localStorage.getItem(localStorage.key(i)).split("|");
- 
-                          //dataHtml += "<p><span class=\"msg\">" + data[0] + "</span><span class=\"datetime\">" + data[1] + "</span><span>" + data[2]+"</span></p>";
-                      dataHtml += "<span style=>" + data[1] + "<span style=\"float:right\">" + data[2] + "</span><p><span class=\"msg\">" + data[0] + "<input style=\"float:right;border:none;border-radius:5px;\" id=\"clearBt\" type=\"button\" onclick=\"delete1(" + localStorage.key(i) + ");\" value=\"埃\"/>" + "</span></p>";
-                  }
-                  document.getElementById("comment").innerHTML = dataHtml;
-              },
-              clearData:function()//睲计沮
-              {
-                  if(localStorage.length > 0)
-                  {
-                      if(window.confirm("睲ぃ確絋粄琌睲"))
-                      {
-                          localStorage.clear();
-                          this.writeData();
-                      }
-                  }
-                  else
-                 {
-                     alert("⊿Τ惠璶睲计沮");
-                  }
-              },
-              getDateTime:function()//莉ら戳丁ㄒ 2012-03-08 12:58:58
-              {
-                  var isZero = function(num)//╬Τよ猭笆干箂
-                  {
-                      if(num < 10)
-                     {
-                          num = "0" + num;
-                      }
-                      return num;
-                  }
+            $.ajax({
+                url: "<%=request.getContextPath()%>/Main_message/MainMsgServlet",
+                type: "POST",                  // GET | POST | PUT | DELETE | PATCH
+                data: data,               // 肚癳戈﹚ url
+                dataType: "json",
+                success: function () {      // request Θ眔莱磅︽
+                    console.log(mainmsg_text);
+                    console.log("xxxxx");
+                    var dataHtml = ""
+                    dataHtml +="<span style>"
+                    dataHtml +="mainmsg_time"
+                    dataHtml +=  "<span style=\"float:right\">undefined</span>"
+                    dataHtml +=     "ゅ"
+                   	dataHtml +=       "<p>"
+                    dataHtml +=          "<span class=\"msg\">"          
+                    dataHtml +=             "<input style=\"float : right; border : none; border-radius : 5px;\" id=\"clearBt\"type=\"button\" value=\"埃\">"
+                    dataHtml +=           mainmsg_text+"</span>"
+                    dataHtml +=        "</p>"
+                    dataHtml +=   "</span>"
+                    dataHtml +="</span>"
+                   	
+                    $("#comment").append(dataHtml);
+                    $("#test").val("");// 痙ē戈癳睲
+                   
                   
-                  var d = new Date();
-                  return d.getFullYear() + "-" + isZero(d.getMonth() + 1) + "-" + isZero(d.getDate()) + " " + isZero(d.getHours()) + ":" + isZero(d.getMinutes()) + ":" + isZero(d.getSeconds());
-              }            
-          }
-          
-          window.onload = function()
-          {
-              Storage.writeData();//讽ゴ秨盢localStorageい计沮块娩狦⊿Τ计沮玥块
-              document.getElementById("postBt").onclick = function(){Storage.saveData();}//祇蝶阶秙睰翴阑ㄆンノ琌盢localStorageい计沮块
-              document.getElementById("clearBt").onclick = function(){Storage.clearData();}//睲┮Τ玂计沮
-          }
+                 // 睲埃龄         
+                   $("#clearBt").on("click", function(){
+                            $("#test").val("");
+                    })
+                }
+            })
+            
+       
+            
+        
+           
+            
+            
+            
+            
+            
+        });
+        
+    </script>
 
+</body>
 
-
-
-
-          </script>
-      </head>
-      
-      <body>
-          <h1>痙ē狾</h1>
-
-          <div id="content">
-              <div id="post">
-                  <div style="background:#3EADC5 ;height:30px;">
-                                              际嘿<input type="submit" id="shangtian" name="Submit3" style="border:none; background-color:#3EADC5; color:white;" value="纐粄ノめ翴阑э跑" onclick="prom()" />
-                      <input type="text" id="ritian" style="border:none; background-color:#3EADC5; color:white;"   onclick="prom()"/>
-                      <!--disabled="disabled"-->
-                  </div>
-                  <div>
-                  <textarea class="transition"></textarea>
-                      </div>
-                  <input id="postBt" type="button" style="border:none; background-color:#3EADC5; color:white;border-radius:5px; width:80px; height:30px;" value="祇痙ē"/>
-                 <input id="clearBt" type="button" style="border:none; background-color:#3EADC5; color:white;border-radius:5px; width:80px; height:30px;" value="睲"/>
-             </div>
-             <div id="comment"></div>
-              </div>
-          </body>
- </html>
+</html>

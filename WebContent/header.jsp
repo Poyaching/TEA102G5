@@ -1,10 +1,10 @@
-<!-- �]�wJSP�s�X -->
+
 <%@page import="com.member_info.model.Member_infoVO"%>
 <%@page import="com.sub_class.model.Sub_classVO"%>
 <%@page import="com.class_unit.model.Class_unitVO" %>
 <%@page import="com.class_unit.model.Class_unitService" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!-- �]�w���Үw -->
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page import="com.sub_class.*"%>

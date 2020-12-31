@@ -57,7 +57,7 @@ img{
 	<tr><td>
 		 <h3>作業資料 - listOneTrHW.jsp</h3>
 			 <h4>
-			 	<a href="<%=request.getContextPath()%>/front-end/teacherHw/hwQuestion.jsp">回首頁</a>
+			 	<a href="<%=request.getContextPath()%>/front-end/hw/teacherHw/hwQuestion.jsp">回首頁</a>
 			 </h4>
 	</td></tr>
 </table>

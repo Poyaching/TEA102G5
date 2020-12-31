@@ -68,7 +68,7 @@ div{
 		</li>
 <!-- 		輸入式作品編號查詢 -->
 		<li>
-			<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/hw_test/studenthw.do">
+			<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/studenthwServlet">
 				<b>輸入作品編號 (如SH00001):</b>
 				<input type="text" name="studenthw_id">
 				<input	type="hidden" name="action" value="getOne_For_Display">
@@ -81,7 +81,7 @@ div{
 			
 <!-- 		下拉式作品編號查詢 -->
 		<li>
-			<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/hw_test/studenthw.do">
+			<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/studenthwServlet">
 				<b>選擇作品編號:</b> 
 				<select size="1" name="studenthw_id">
 					<c:forEach var="studenthwVO" items="${stService.all}">
@@ -95,7 +95,7 @@ div{
 		</li>
 <!-- 		下拉式學生編號查詢 -->
 		<li>
-			<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/hw_test/studenthw.do">
+			<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/studenthwServlet">
 				<b>選擇學生編號:</b>
 				<select size="1" name="studenthw_id">
 					<c:forEach var="studenthwVO" items="${stService.all}">

@@ -60,7 +60,7 @@ th, td {
 		<tr>
 			<td>
 				<h4>
-					<a href="<%=request.getContextPath()%>/front-end/teacherHw/hwQuestion.jsp">回首頁</a>
+					<a href="<%=request.getContextPath()%>/front-end/hw/teacherHw/hwQuestion.jsp">回首頁</a>
 				</h4>
 			</td>		
 		</tr>
@@ -76,7 +76,7 @@ th, td {
 			</c:forEach>
 		</ul>
 	</c:if>
-	<FORM METHOD="post" ACTION="<%= request.getContextPath()%>/teacherHw/teacherhw.do" name="form1" enctype="multipart/form-data">
+	<FORM METHOD="post" ACTION="<%= request.getContextPath()%>/TeacherhwServlet" name="form1" enctype="multipart/form-data">
 		<table>
 		<jsp:useBean id="class_unitService" scope="page" class="com.class_unit.model.Class_unitService" />
 			<tr>
