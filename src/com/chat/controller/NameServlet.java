@@ -27,16 +27,16 @@ public class NameServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 //		String userName = req.getParameter("userName");
 		
-		Member_infoService member_infosev = new Member_infoService();
-		List<Member_infoVO> list = (List<Member_infoVO>)member_infosev.getAll();
-		Iterator<Member_infoVO> it = list.iterator();
-		while(it.hasNext()){
-			String member = it.next().getMember_email();{
-				if(member.equals(loginUser)) {
-					it.remove();
-				}
-			}
-		}
+//		Member_infoService member_infosev = new Member_infoService();
+//		List<Member_infoVO> list = (List<Member_infoVO>)member_infosev.getAll();
+//		Iterator<Member_infoVO> it = list.iterator();
+//		while(it.hasNext()){
+//			String member = it.next().getMember_email();{
+//				if(member.equals(loginUser)) {
+//					it.remove();
+//				}
+//			}
+//		}
 		
 //		
 //		for(int i=0;i<list.size();i++) {
@@ -45,24 +45,24 @@ public class NameServlet extends HttpServlet {
 //		}
 
 		HttpSession session = req.getSession();
-		session.setAttribute("memberlist", list);
+//		session.setAttribute("memberlist", list);
 		loginUser = (String) session.getAttribute("account");
 		serviceUser = "ccps920167@gmail.com"; //客服帳號
 		serviceUserName = "Tomato客服";
 
 		if (!loginUser.equals("ccps920167@gmail.com")) {
 			req.setAttribute("userName", loginUser);
-			req.setAttribute("userName2", serviceUser);
+//			req.setAttribute("userName2", serviceUser);
 			
 
-			System.out.println("客服不在線");
+			System.out.println("會員登入");
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/front-end/chat/chat.jsp");
 			dispatcher.forward(req, res);
 		}if(loginUser.equals("ccps920167@gmail.com")) {
 			req.setAttribute("userName", loginUser);
-			req.setAttribute("userName2", serviceUser);
+//			req.setAttribute("userName2", serviceUser);
 
-			System.out.println("客服進來了");
+			System.out.println("客服上線");
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/front-end/chat/chat.jsp");
 			dispatcher.forward(req, res);
 			}
