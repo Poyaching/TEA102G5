@@ -100,36 +100,18 @@ html, body {
 		</c:if>
 	<div class="container sign_in">
 		<!-- 內容 -->
-		<form class="form-signin" action="<%=request.getContextPath()%>/member_info/LoginHandler" method="post">
+		<form class="form-signin" action="<%=request.getContextPath()%>/member_info/MailServlet" method="post">
 
-			<h1 class="h3 mb-3 font-weight-normal">登入帳號</h1>
+			<h1 class="h3 mb-3 font-weight-normal">忘記密碼</h1>
 			<br>
 			<h6 class=" font-weight-normal">Email</h6>
 			<input
-				name="account" type="email" id="inputEmail" class="form-control"
+				name="findaccount" type="text" id="findaccount" class="form-control"
 				placeholder="輸入Email" required autofocus> 
 			<br>
-			<h6 class=" font-weight-normal">密碼</h6>
-			<input
-				name="password" type="password" id="inputPassword" class="form-control"
-				placeholder="輸入密碼" required>
-			<br>	
-			<h6 class=" font-weight-normal">驗證碼</h6>
-			<img
-				src="<%=request.getContextPath()%>/front-end/sign_in/newimage.jsp" alt="New Image" />	 
-			<input type="text" name="insrand" id="insrand" maxlength="4" class="form-control" /><br>
-				
-				
-				
-				
-				
-			<div class="checkbox mb-3">
-				<label> <input type="checkbox" value="remember-me">
-					記住帳號
-				</label>
-			</div>
-			<input type="hidden" name="action" value="login"/><br>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
+	
+			<input type="hidden" name="action" value="forgotpassword"/><br>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">送出</button>
 
 		</form>
 	</div>

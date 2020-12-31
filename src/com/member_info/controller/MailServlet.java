@@ -84,13 +84,13 @@ public class MailServlet extends HttpServlet {
 
 			try {
 				/*************************** 1.接收請求參數 ****************************************/
-				String findaccount = new String(req.getParameter("findaccount"));
+				String findaccount = req.getParameter("findaccount");
 				if (findaccount == null || (findaccount.trim()).length() == 0) {
 					errorMsgs.add("請輸入查詢帳號");
 				}
 
 				if (!errorMsgs.isEmpty()) {
-					RequestDispatcher failureView = req.getRequestDispatcher("/front-end/member_info/login.jsp");
+					RequestDispatcher failureView = req.getRequestDispatcher("/front-end/sign_in/sign_in.jsp");
 					failureView.forward(req, res);
 					return;
 				} // 程式中斷
@@ -103,11 +103,12 @@ public class MailServlet extends HttpServlet {
 				if (!is_ok) {
 					errorMsgs.add("信箱帳號錯誤");
 				} else {
-					res.sendRedirect(req.getContextPath() + "/front-end/member_info/login.jsp");
+					RequestDispatcher failureView = req.getRequestDispatcher("/front-end/sign_in/sign_in.jsp");
+					failureView.forward(req, res);
 				}
 			} catch (Exception e) {
 				errorMsgs.add("無此帳號，請先註冊" + e.getMessage());
-				RequestDispatcher failureView = req.getRequestDispatcher("/front-end/member_info/login.jsp");
+				RequestDispatcher failureView = req.getRequestDispatcher("/front-end/sign_in/sign_in.jsp");
 				failureView.forward(req, res);
 			}
 		}

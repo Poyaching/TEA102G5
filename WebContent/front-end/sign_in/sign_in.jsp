@@ -112,8 +112,8 @@ html, body {
 				src="<%=request.getContextPath()%>/front-end/sign_in/newimage.jsp" alt="New Image"/>	 
 			<input type="text" name="insrand" id="insrand" maxlength="4" class="form-control" style="margin: 10px ;display: inline-block;" />
 			<button class="btn btn-lg btn-danger btn-block" type="submit" style="margin: 10px">登入</button>
-			<button class="btn btn-danger" style="margin: 10px">建立帳號</button>
-			<button class="btn btn-danger" style="margin: 10px">忘記密碼</button>
+			<a href="<%=request.getContextPath()%>/front-end/sign_in/forget.jsp">建立帳號</a>
+			<a href="<%=request.getContextPath()%>/front-end/sign_in/forget.jsp">忘記密碼</a>
 			<input type="hidden" name="action" value="login" style="margin: 10px"/><br>
 
 		</form>
