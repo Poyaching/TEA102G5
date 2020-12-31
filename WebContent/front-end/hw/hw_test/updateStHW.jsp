@@ -73,7 +73,7 @@
 		</ul>
 	</c:if>
 
-	<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/hw_test/studenthw.do" name="form1" enctype="multipart/form-data">
+	<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/studenthwServlet" name="form1" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>作品編號:<font color=red><b>*</b></font></td>
@@ -100,7 +100,7 @@
 				<td>
 					<input type="file" name="file_data" size="45" value="${student_homeworkVO.file_data}"/>
 					<br>
-					<img alt="圖片" src="<%= request.getContextPath()%>/hw_test/studenthw.do?action=display_pic&studenthw_id=${student_homeworkVO.studenthw_id}">
+					<img alt="圖片" src="<%= request.getContextPath()%>/studenthwServlet?action=display_pic&studenthw_id=${student_homeworkVO.studenthw_id}">
 				</td>
 			</tr>
 			<tr>

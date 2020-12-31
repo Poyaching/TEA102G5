@@ -55,7 +55,7 @@
 			<td>
 				<h3>作業資料修改 - updateTrHW.jsp</h3>
 				<h4>
-					<a href="<%=request.getContextPath()%>/front-end/teacherHw/hwQuestion.jsp">回首頁</a>
+					<a href="<%=request.getContextPath()%>/front-end/hw/teacherHw/hwQuestion.jsp">回首頁</a>
 				</h4>
 			</td>
 		</tr>
@@ -73,7 +73,7 @@
 		</ul>
 	</c:if>
 
-	<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/teacherHw/teacherhw.do" name="form1" enctype="multipart/form-data">
+	<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/TeacherhwServlet" name="form1" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>作業編號:<font color=red><b>*</b></font></td>

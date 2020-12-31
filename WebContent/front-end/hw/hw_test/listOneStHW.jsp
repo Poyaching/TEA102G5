@@ -68,7 +68,7 @@
 		<td><%= sthwVO.getStudenthw_id()%></td>
 		<td><%= sthwVO.getTeacherhw_id()%></td>
 		<td><%= sthwVO.getMember_id()%></td>
-		<td><img alt="圖片" src="<%= request.getContextPath()%>/hw_test/studenthw.do?action=display_pic&studenthw_id=<%= sthwVO.getStudenthw_id()%>"></td>
+		<td><img alt="圖片" src="<%= request.getContextPath()%>/studenthwServlet?action=display_pic&studenthw_id=<%= sthwVO.getStudenthw_id()%>"></td>
 		<td><fmt:formatDate value="<%= sthwVO.getHw_uploadtime()%>" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 		<td><fmt:formatDate value="<%= sthwVO.getHw_updatetime()%>" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 	</tr>
