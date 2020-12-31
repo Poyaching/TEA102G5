@@ -54,7 +54,7 @@ public class Member_infoServlet extends HttpServlet {
 				} else {
 					// 查詢值不存在
 //				res.sendError(HttpServletResponse.SC_NOT_FOUND);    //輸出錯誤訊息
-					InputStream in = getServletContext().getResourceAsStream("/img/953810.png");
+					InputStream in = getServletContext().getResourceAsStream("/img/NoResult/bighead.jpg");
 					byte[] b = new byte[in.available()];
 					in.read(b);
 					out.write(b);
@@ -62,7 +62,7 @@ public class Member_infoServlet extends HttpServlet {
 				}
 			} catch (Exception e) {
 				// 沒有輸入查詢值
-				InputStream in = getServletContext().getResourceAsStream("/img/953810.png");
+				InputStream in = getServletContext().getResourceAsStream("/img/NoResult/bighead.jpg");
 				byte[] b = new byte[in.available()];
 				in.read(b);
 				out.write(b);

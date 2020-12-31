@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.login_history.model.Login_historyService;
 import com.login_history.model.Login_historyVO;
 
-@WebServlet("/login_history/login_historyServlet")
+@WebServlet("/login_history/Login_historyServlet")
 public class Login_historyServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		doPost(req, res);
