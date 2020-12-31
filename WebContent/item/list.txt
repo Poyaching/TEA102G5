@@ -1,8 +1,0 @@
-footer.jsp
-forget.jsp
-header.jsp
-list.txt
-login_success.jsp
-newimage.jsp
-sign_in.jsp
-新文字文件.bat
